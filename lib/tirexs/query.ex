@@ -335,6 +335,11 @@ defmodule Tirexs.Query do
   end
 
   @doc false
+  def should(options, block) do
+    [should: to_array(extract(block))] ++ extract_options(options)
+  end
+
+  @doc false
   def must_not(block) do
     [must_not: to_array(extract(block))]
   end
