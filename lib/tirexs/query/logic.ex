@@ -13,6 +13,7 @@ defmodule Tirexs.Query.Logic do
         {:must, _, [params]}                  -> Query.must(params[:do])
         {:filters, _, [params]}               -> Filter.filters(params[:do])
         {:should, _, [params]}                -> Query.should(params[:do])
+        {:should, _, [params1, params2]}      -> Query.should(params1, params2[:do])
         {:must_not, _, [params]}              -> Query.must_not(params[:do])
         {:match, _, params}                   -> Query.match(params)
         {:multi_match, _, params}             -> Query.multi_match(params)
